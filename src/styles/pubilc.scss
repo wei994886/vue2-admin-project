@@ -1,0 +1,56 @@
+$mian_color: #2b2f3a; // 头部导航颜色
+$weightMain_color: #181b20; // 左侧导航颜色
+$contrast_color: white;
+
+.mian_color {
+  color: $mian_color;
+}
+
+.white_color {
+  color: $contrast_color;
+}
+
+body {
+  margin: 0;
+}
+.logoBox {
+  background: $weightMain_color;
+}
+
+.el-header {
+  background: $mian_color !important;
+  color: #333;
+  padding: 0;
+  line-height: 60px;
+}
+
+.el-aside {
+  background: $weightMain_color;
+}
+
+.el-menu {
+  height: 100%;
+  background: $weightMain_color;
+  border-right: none;
+}
+
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 220px;
+}
+
+// 修改导航菜单栏悬浮时的背景颜色
+.el-menu-item:hover,
+.el-submenu__title:hover {
+  background-color: #2b2f3a !important;
+}
+
+// 菜单选中背景颜色
+.el-menu-item.is-active {
+  background: rgb(23, 23, 23);
+}
+
+.el-main {
+  padding: 0;
+  background-color: #ffffff;
+  color: #333;
+}
