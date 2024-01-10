@@ -5,8 +5,6 @@
 </template>
 
 <style lang="scss">
-@import './styles/pubilc.scss';
-@import './styles/common.scss';
 
 #app {
   width: 100%;

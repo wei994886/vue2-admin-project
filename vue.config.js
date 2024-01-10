@@ -3,4 +3,11 @@ module.exports = {
   devServer: {
     open: true,  //启动项目 浏览器自动打开网页
   },
+  css: {
+    loaderOptions: {
+      sass: {
+        additionalData: `@import "~@/styles/common.scss";`
+      }
+    }
+  }
 }
