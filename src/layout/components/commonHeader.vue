@@ -4,7 +4,7 @@
       <div class="l-content-box">
         <div class="l-content-left" @click="backToHomePage">
           <img :src="logoImg" alt="" />
-          <span>Vue Admin 管理系统</span>
+          <span>Vue2 Admin Project 管理系统</span>
         </div>
         <div class="l-content-right">
           <!-- 菜单展开收缩按钮 -->

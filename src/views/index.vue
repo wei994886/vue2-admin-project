@@ -1,6 +1,6 @@
 <template>
   <div class="homePageCss">
-    <div class="text">欢迎使用 Vue Admin 管理系统</div>
+    <div class="text">欢迎使用 Vue2 Admin Project 管理系统</div>
   </div>
 </template>
 
