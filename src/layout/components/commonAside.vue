@@ -10,6 +10,13 @@
       text-color="#ffffff"
       active-text-color="#fc9105"
     >
+      <div class="shrinkButton">
+        <span
+          :class="collapseBtnClass"
+          class="collapseMenuCss"
+          @click="collapseMenu"
+        ></span>
+      </div>
       <commonAsideItem :menuData="menuList"></commonAsideItem>
     </el-menu>
   </div>
@@ -21,106 +28,13 @@
     components: {
       commonAsideItem,
     },
-    //计算属性
-    computed: {
-      isCollapse() {
-        // 这里的数据就是从vuex取得
-        return this.$store.state.isCollapse
-      },
-    },
     data() {
       return {
-        // menuList: [
-        //   {
-        //     label: 'echarts',
-        //     icon: 'el-icon-location-outline',
-        //     children: [
-        //       {
-        //         path: '/echarts/echartsMap',
-        //         name: 'echartsMap',
-        //         label: 'echarts地图',
-        //         icon: 'el-icon-location-information',
-        //       },
-        //       {
-        //         path: '/echarts/echartsItem',
-        //         name: 'echartsItem',
-        //         label: 'echarts图表',
-        //         icon: 'el-icon-location-information',
-        //       },
-        //     ],
-        //   },
-        //   {
-        //     label: '组件封装',
-        //     icon: 'el-icon-location-outline',
-        //     children: [
-        //       {
-        //         path: '/packageComponent/tablePage',
-        //         name: 'tablePage',
-        //         label: '表格',
-        //         icon: 'el-icon-location-information',
-        //       },
-        //       {
-        //         path: '/packageComponent/treePage',
-        //         name: 'treePage',
-        //         label: '树形控件',
-        //         icon: 'el-icon-location-information',
-        //       },
-        //       {
-        //         path: '/packageComponent/selectTreePage',
-        //         name: 'selectTreePage',
-        //         label: '树形选择器',
-        //         icon: 'el-icon-location-information',
-        //       },
-        //     ],
-        //   },
-        //   // {
-        //   //   index: '1',
-        //   //   icon: 'el-icon-menu',
-        //   //   name: '一级菜单01',
-        //   //   children: [
-        //   //     {
-        //   //       index: '1-1',
-        //   //       icon: 'el-icon-film',
-        //   //       name: '二级菜单01',
-        //   //       children: [
-        //   //         {
-        //   //           index: '1-1-1',
-        //   //           icon: 'el-icon-date',
-        //   //           name: '三级菜单01',
-        //   //           children: [
-        //   //             {
-        //   //               index: '1-1-1-1',
-        //   //               icon: 'el-icon-monitor',
-        //   //               name: '四级菜单01'
-        //   //             }
-        //   //           ]
-        //   //         },
-        //   //         {
-        //   //           index: '1-1-2',
-        //   //           icon: 'el-icon-headset',
-        //   //           name: '三级菜单02'
-        //   //         }
-        //   //       ]
-        //   //     },
-        //   //     {
-        //   //       index: '1-2',
-        //   //       icon: 'el-icon-data-line',
-        //   //       name: '二级菜单02'
-        //   //     }
-        //   //   ]
-        //   // },
-        //   // {
-        //   //  path: '/echarts/echartsItem',
-        //   //   name: 'echartsItem',
-        //   //   label: 'echarts图表',
-        //   //   icon: 'el-icon-date',
-        //   // },
-        // ],
-
+        isCollapse: false,
+        collapseBtnClass: 'el-icon-s-fold',
         menuList: [],
       }
     },
-
     created() {},
     mounted() {
       let routesArray = []
@@ -132,6 +46,18 @@
       console.log('[ 菜单数据 ]', this.menuList)
     },
     methods: {
+      //控制左侧菜单是否折叠
+      collapseMenu() {
+        //点击收缩按钮触发
+        this.isCollapse = !this.isCollapse
+        if (this.isCollapse) {
+          //收缩
+          this.collapseBtnClass = 'el-icon-s-unfold'
+        } else {
+          //展开
+          this.collapseBtnClass = 'el-icon-s-fold'
+        }
+      },
       processMenuData(menuList) {
         return menuList.map(item => {
           // console.log('[ item ]', item)
@@ -150,4 +76,15 @@
     },
   }
 </script>
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+  .shrinkButton {
+    text-align: center;
+    background-color: #222B45;
+    .collapseMenuCss {
+      font-size: 20px;
+      color: #ffffff;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+  }
+</style>

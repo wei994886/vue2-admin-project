@@ -226,6 +226,8 @@ export default {
 
 ::v-deep .el-tabs__nav-wrap.is-scrollable {
   padding: 0 30px;
+  display: flex;
+  align-items: center;
 }
 </style>
 
