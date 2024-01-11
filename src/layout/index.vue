@@ -50,6 +50,7 @@ export default {
       overflow: hidden;
 
       .el-main {
+        padding: 0;
         display: flex;
         flex-direction: column;
 

@@ -135,7 +135,6 @@
         }
 
         .l-content-left {
-          width: 220px;
           font-weight: bold;
           text-align: center;
           color: #ffffff;
@@ -147,6 +146,7 @@
 
           img {
             width: 30px;
+            margin: 0 10px;
           }
         }
 
