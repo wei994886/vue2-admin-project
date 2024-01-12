@@ -3,8 +3,8 @@
     <div class="l-content">
       <div class="l-content-box">
         <div class="l-content-left" @click="backToHomePage">
-          <img :src="logoImg" alt="" />
-          <span>Vue2 Admin</span>
+          <img :src="logoImg" alt="Logo" />
+          <span>Vue2 Admin Project</span>
         </div>
         <commonBreadcrumb style="margin: 0 10px" />
       </div>
@@ -63,7 +63,6 @@
       justify-content: space-between;
 
       .l-content-box {
-        width: 412px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -72,7 +71,6 @@
           font-weight: bold;
           text-align: center;
           color: #ffffff;
-          // background: #181b20;
           display: flex;
           align-items: center;
           justify-content: space-evenly;
@@ -87,7 +85,6 @@
     }
 
     .r-content {
-      // width: 6.5%;
       margin-right: 15px;
       display: flex;
       align-items: center;
