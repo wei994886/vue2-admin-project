@@ -4,7 +4,7 @@
       <div class="l-content-box">
         <div class="l-content-left" @click="backToHomePage">
           <img :src="logoImg" alt="" />
-          <span>Vue2 Admin Project 管理系统</span>
+          <span>Vue2 Admin</span>
         </div>
         <commonBreadcrumb style="margin: 0 10px" />
       </div>
@@ -34,7 +34,7 @@
         userImg: require('../../assets/avatar.png'),
       }
     },
-    
+
     mounted() {},
     methods: {
       // 左侧logo区域 点击返回首页
@@ -63,8 +63,10 @@
       justify-content: space-between;
 
       .l-content-box {
+        width: 412px;
         display: flex;
         align-items: center;
+        justify-content: space-between;
 
         .l-content-left {
           font-weight: bold;

@@ -1,14 +1,5 @@
 @import './pubilc.scss';
 
-html,
-body,
-#app {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
 *,
 *:before,
 *:after {
@@ -31,7 +22,7 @@ a:hover {
 p {
   margin: 0;
   padding: 0;
-  color: #17233D;
+  color: #17233d;
 }
 
 div:focus {
@@ -50,7 +41,7 @@ div:focus {
   cursor: pointer;
 
   &:hover {
-    color: #2479F0 !important;
+    color: #2479f0 !important;
   }
 }
 
