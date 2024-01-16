@@ -1,6 +1,8 @@
 <template>
   <div class="homePageCss">
-    <div class="text">欢迎使用 Vue2 Admin Project 管理系统</div>
+    <div class="text textAnimationEffect">
+      欢迎使用 Vue2 Admin Project 管理系统
+    </div>
   </div>
 </template>
 
@@ -74,6 +76,26 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       // color: transparent;
+    }
+  }
+
+  .textAnimationEffect {
+    animation-name: focus-in-contract;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: none;
+  }
+  @keyframes focus-in-contract {
+    0% {
+      filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      filter: blur(0);
+      opacity: 1;
     }
   }
 </style>
