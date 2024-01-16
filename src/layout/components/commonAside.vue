@@ -10,6 +10,13 @@
       text-color="#ffffff"
       active-text-color="#fc9105"
     >
+      <div v-if="!isCollapse" class="logoBox" @click="backToHomePage">
+        <img :src="logoImg" alt="Logo" />
+        <span class="systemName">Vue3 Admin Project</span>
+      </div>
+      <div v-else class="logoBox">
+        <img :src="logoImg" alt="Logo" />
+      </div>
       <div class="shrinkButton">
         <span
           :class="collapseBtnClass"
@@ -30,6 +37,7 @@
     },
     data() {
       return {
+        logoImg: require('../../assets/logo.png'),
         isCollapse: false,
         collapseBtnClass: 'el-icon-s-fold',
         menuList: [],
@@ -46,6 +54,10 @@
       console.log('[ 菜单数据 ]', this.menuList)
     },
     methods: {
+      // 左侧logo区域 点击返回首页
+      backToHomePage() {
+        this.$router.push({ path: '/home' })
+      },
       //控制左侧菜单是否折叠
       collapseMenu() {
         //点击收缩按钮触发
@@ -77,9 +89,26 @@
   }
 </script>
 <style scoped lang="scss">
+  .logoBox {
+    height: 60px;
+    text-align: center;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+
+    img {
+      width: 30px;
+    }
+
+    .systemName {
+      white-space: nowrap;
+    }
+  }
   .shrinkButton {
     text-align: center;
-    background-color: #222B45;
+    background-color: #222b45;
     .collapseMenuCss {
       font-size: 20px;
       color: #ffffff;

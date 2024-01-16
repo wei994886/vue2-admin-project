@@ -1,51 +1,53 @@
 <template>
   <div id="main">
     <el-container class="containers">
-      <el-header>
-        <commonHeader />
-      </el-header>
-      <el-container class="container-child">
-        <el-aside width="auto">
-          <commonAside />
-        </el-aside>
-        <el-main>
-          <commonTabs />
-          <keep-alive>
-            <div class="app-main">
-              <router-view />
-            </div>
-          </keep-alive>
-        </el-main>
+      <el-aside width="auto">
+        <commonAside />
+      </el-aside>
+      <el-container>
+        <el-container class="container-child">
+          <el-header>
+            <commonHeader />
+          </el-header>
+          <el-main>
+            <commonTabs />
+            <keep-alive>
+              <div class="app-main">
+                <router-view />
+              </div>
+            </keep-alive>
+          </el-main>
+        </el-container>
       </el-container>
     </el-container>
   </div>
 </template>
- 
+
 <script>
-import commonAside from "@/layout/components/commonAside";
-import commonHeader from "@/layout/components/commonHeader";
-import commonTabs from "@/layout/components/commonTabs";
-export default {
-  name: 'layout-Com',
-  components: {
-    commonAside,
-    commonHeader,
-    commonTabs
-  },
-  methods: {}
-}
+  import commonAside from '@/layout/components/commonAside'
+  import commonHeader from '@/layout/components/commonHeader'
+  import commonTabs from '@/layout/components/commonTabs'
+  export default {
+    name: 'layout-Com',
+    components: {
+      commonAside,
+      commonHeader,
+      commonTabs,
+    },
+    methods: {},
+  }
 </script>
- 
+
 <style scoped lang="scss">
-#main {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-
-  .containers {
+  #main {
+    width: 100%;
     height: 100%;
+    margin: 0;
+    padding: 0;
 
+    .containers {
+      height: 100%;
+    }
     .container-child {
       overflow: hidden;
 
@@ -59,8 +61,6 @@ export default {
           overflow-y: auto;
         }
       }
-
     }
   }
-}
 </style>

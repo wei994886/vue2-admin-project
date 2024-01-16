@@ -1,13 +1,7 @@
 <template>
   <div class="header-content">
     <div class="l-content">
-      <div class="l-content-box">
-        <div class="l-content-left" @click="backToHomePage">
-          <img :src="logoImg" alt="Logo" />
-          <span>Vue2 Admin Project</span>
-        </div>
-        <commonBreadcrumb style="margin: 0 10px" />
-      </div>
+      <commonBreadcrumb style="margin: 0 10px" />
     </div>
     <div class="r-content">
       <img :src="userImg" class="userImgCss" />
@@ -37,10 +31,6 @@
 
     mounted() {},
     methods: {
-      // 左侧logo区域 点击返回首页
-      backToHomePage() {
-        this.$router.push({ path: '/home' })
-      },
       //退出登陆
       logOut() {
         //清除token
@@ -61,27 +51,6 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-
-      .l-content-box {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        .l-content-left {
-          font-weight: bold;
-          text-align: center;
-          color: #ffffff;
-          display: flex;
-          align-items: center;
-          justify-content: space-evenly;
-          cursor: pointer;
-
-          img {
-            width: 30px;
-            margin: 0 10px;
-          }
-        }
-      }
     }
 
     .r-content {
