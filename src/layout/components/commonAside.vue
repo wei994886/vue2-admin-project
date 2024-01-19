@@ -10,9 +10,14 @@
       text-color="#ffffff"
       active-text-color="#fc9105"
     >
-      <div v-if="!isCollapse" class="logoBox" @click="backToHomePage">
+      <div
+        v-if="!isCollapse"
+        class="logoBox"
+        :class="!isCollapse ? 'launched' : ''"
+        @click="backToHomePage"
+      >
         <img :src="logoImg" alt="Logo" />
-        <span class="systemName">Vue3 Admin Project</span>
+        <span ref="systemNameRef" class="systemName">Vue3 Admin Project</span>
       </div>
       <div v-else class="logoBox">
         <img :src="logoImg" alt="Logo" />
@@ -65,6 +70,7 @@
         if (this.isCollapse) {
           //收缩
           this.collapseBtnClass = 'el-icon-s-unfold'
+          this.$refs.systemNameRef.style.display = 'none'
         } else {
           //展开
           this.collapseBtnClass = 'el-icon-s-fold'
@@ -114,6 +120,23 @@
       color: #ffffff;
       margin: 0 10px;
       cursor: pointer;
+    }
+  }
+
+  // 展开logo动画
+  .launched {
+    animation: fadeInLeft 0.2s 0.2s ease both;
+  }
+  @keyframes fadeInLeft {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateX(-20px);
+      -moz-transform: translateX(-20px);
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: translateX(0);
+      -moz-transform: translateX(0);
     }
   }
 </style>
