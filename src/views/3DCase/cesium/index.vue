@@ -15,6 +15,7 @@
 </template>
 
 <script>
+// import modifyMap from './filterColor' // 修改地图颜色(暗色模式)
 import img from './redBJD.jpg'
 export default {
   name: 'cesiumContainer',
@@ -101,6 +102,18 @@ export default {
           url: 'http://webst01.is.autonavi.com/appmaptile?style=8&x={x}&y={y}&z={z}',
         }),
       )
+
+      // 地形
+      this.viewer.scene.setTerrain(
+        new Cesium.Terrain(Cesium.CesiumTerrainProvider.fromIonAssetId(1))
+      );
+
+      // modifyMap(this.viewer, {
+      //     //反色?
+      //     invertColor: true,
+      //     //滤色值
+      //     filterRGB: [60, 145, 172],
+      // });
 
 
       // this.lensDistance()
@@ -271,13 +284,13 @@ export default {
 
     // 加载模型
     addZSFJ() {
-      this.addGLTFModel('zhishengji', '/cesiumModel/zhishengji.gltf', 116.435314, 40.960521, 1000,)
+      this.addGLTFModel('zhishengji', '/cesiumModel/zhishengji.gltf', 116.435314, 40.960521, 2000,)
     },
     addBGL() {
-      this.addGLTFModel('bangonglou', '/cesiumModel/bangonglou.gltf', 116.435314, 40.960522, 0, -280)
+      this.addGLTFModel('bangonglou', '/cesiumModel/bangonglou.gltf', 116.435314, 33.960522, 0, -280)
     },
     addDT() {
-      this.addGLTFModel('dianta', '/cesiumModel/dianta.gltf', 116.435314, 41.960523, 0)
+      this.addGLTFModel('dianta', '/cesiumModel/dianta.gltf', 116.435314, 39.960523, 0)
     },
 
     // 模型加载方法
@@ -316,11 +329,15 @@ export default {
           runAnimations: true,//是否启动模型中制定的gltf动画
           clampAnimations: true,//制定gltf动画是否在没有关键帧的持续时间内保持最后一个姿势
           shadows: Cesium.ShadowMode.ENABLED,
-          heightReference: Cesium.HeightReference.NONE
+
+          // heightReference属性值
+          // NONE：模型将始终位于高度0，不考虑地形或地形高度。
+          // CLAMP_TO_GROUND：模型将始终与地形或地形高度对齐。
+          heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
         }
       })
       this.viewer.trackedEntity = entity; // 聚焦模型
-      this.viewer.zoomTo(entity)
+      // this.viewer.zoomTo(entity)
     }
   },
 }
