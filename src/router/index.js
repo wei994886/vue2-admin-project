@@ -30,6 +30,27 @@ const routes = [
     ],
   },
   {
+    path: '/3DCase',
+    component: Layout,
+    redirect: '/3DCase/cesiumDemo',
+    meta: { title: '3DCase', icon: 'el-icon-location-outline' },
+    //通过children配置子级路由
+    children: [
+      {
+        path: 'cesiumDemo',
+        name: 'cesiumDemo',
+        component: () => import('@/views/3DCase/cesium'),
+        meta: { title: '三维Cesium', icon: 'el-icon-location-information' },
+      },
+      // {
+      //   path: 'threeDemo',
+      //   name: 'threeDemo',
+      //   component: () => import('@/views/3DCase/three'),
+      //   meta: { title: '三维Three', icon: 'el-icon-location-information' },
+      // }
+    ],
+  },
+  {
     path: '/echarts',
     component: Layout,
     redirect: '/echarts/echartsMap',
