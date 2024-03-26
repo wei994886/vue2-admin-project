@@ -17,7 +17,7 @@
         @click="backToHomePage"
       >
         <img :src="logoImg" alt="Logo" />
-        <span ref="systemNameRef" class="systemName">Vue3 Admin Project</span>
+        <span ref="systemNameRef" class="systemName">Vue2 Admin Project</span>
       </div>
       <div v-else class="logoBox">
         <img :src="logoImg" alt="Logo" />
